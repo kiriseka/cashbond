@@ -1,0 +1,74 @@
+.logo img{
+    height: 60px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 50px 0; 
+}
+
+.icon{
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.dashboard, .catatan, .keluar{
+    margin-bottom: 30px;
+}
+
+.icon img{
+    margin: auto;
+}
+
+.menu-sidebar{
+    margin-top: 50px;
+    
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-right: 2px solid #EEF0F3;
+    padding-left: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #9a9a9a;
+    font-size: 11pt;
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    color: #2b00d4;
+}
+
+.sidebar a:hover:not(.active) {
+    color: #2b00d4;
+}
+
+.btn-logout{
+    color: #9a9a9a;
+    font-size: 11pt;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0px ;
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.btn-logout:hover:not(.active) {
+    color: #2b00d4;
+    
+}

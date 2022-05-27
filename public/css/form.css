@@ -1,0 +1,58 @@
+form{
+    margin-top: 30px;
+    padding: 0 40px;
+}
+
+.form{
+	/*membuat lebar form penuh*/
+	box-sizing : border-box;
+	width: 100%;
+	padding: 10px;
+	font-size: 10pt;
+    margin: 5px 0 10px 0;
+    transition: 0.5s;
+    border-radius: 9px;
+    border:1px solid #2b00d4;
+    box-shadow: 0 3px 3px 1px rgba(0,0,0,0.19);
+}
+
+.form:focus{
+    outline: none !important;
+}
+
+.btn{
+	background: #2b00d4;
+	color: white;
+	font-size: 11pt;
+    border: 1px solid #2b00d4;
+	border-radius: 30px;
+    transition: 0.5s;
+	padding: 10px 20px;
+    margin-top: 20px;
+    display: block;
+    float: right;
+}
+
+.btn:hover{
+    transition: 0.3s;
+    background-color: white;
+    border: 1px solid #2b00d4;
+    color: #232323;
+}
+
+form label{
+    display: block;
+    font-weight: bold;
+    font-size: 12pt;
+    margin: 10px 0 3px 0;
+}
+
+span{
+    margin-left: 5px;
+    margin-right: 20px;
+    font-size: 11pt;
+}
+
+.update{
+    margin-top: 50px;
+}
