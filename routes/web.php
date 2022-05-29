@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardTransactionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,11 @@ Route::get('/', function () {
     return view('home');
 })->name('home')->middleware('auth');
 
-Route::get('/catatan', function () {
-    return view('catatan');
-})->middleware('auth');
+// Route::get('/catatan', function () {
+//     return view('catatan');
+// })->middleware('auth');
+
+Route::resource('/transaction',DashboardTransactionController::class)->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);

@@ -49,7 +49,7 @@
                 <div class="icon-catatan icon">
                     <img src="svg/catatan.svg" alt="">
                 </div>
-                <a href="catatan">Catatan</a>
+                <a href="/transaction">Catatan</a>
             </div>
             <div class="keluar">
                 

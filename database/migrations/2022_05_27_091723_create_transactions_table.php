@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            // $table->date('tangal_transaksi');
-            // $table->string('produk_item');
+            $table->string('nama_customer');
+            $table->date('tanggal_transaksi');
+            $table->string('produk_item');
             $table->integer('nominal_transaksi');
             $table->integer('status_transaksi');
-            $table->integer('tagihan');
+            // $table->integer('tagihan');
             // $table->date('tenggat_waktu');
             $table->timestamps();
         });
@@ -37,4 +38,3 @@ return new class extends Migration
     }
 };
 
-Transaction::create(['user_id' => 1,'nominal_transaksi' => 2000,'status_transaksi' => 1,'tagihan' => 200]);
