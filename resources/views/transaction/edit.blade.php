@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/content.css">
+    <link rel="stylesheet" href="/css/notif.css">
     <link rel="stylesheet" href="/css/responsif.css">
+    <link rel="icon" href="{{ asset('img/logo-polos.png') }}"/>
     <title>Ubah Catatan</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".notification_icon .fa-bell").click(function(){
+				$(".dropdown").toggleClass("active");
+			})
+		});
+	</script>
 </head>
 <body>
     <!-- Navbar -->
@@ -25,11 +36,35 @@
             <p class="name-page">Ubah Catatan</p>
         </div>
         <div class="right">
-            <div class="notif">
-                <img src="/svg/notif.svg" alt="">
+        <div class="wrapper">
+	            <div class="notification_wrap">
+                    <div class="notif notification_icon">
+                        <img class="fa-bell" src="/../svg/notif.svg" alt="">
+                    </div>
+                    <div class="dropdown">
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Johan belum membayar selama<span>14 hari</span></p>
+                                <span class="notify_time">10 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Sunarya belum membayar selama<span>7 hari</span></p>
+                                <span class="notify_time">55 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Agus belum membayar selama<span>8 hari</span></p>
+                                <span class="notify_time">2 hours ago</span>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
             </div>
             <div class="user">
-                <img src="/svg/keluar.svg" alt="">
+                <img src="/svg/keluar.svg" title="{{ auth()->user()->name }}">
             </div>
         </div>
     </div>
@@ -72,7 +107,7 @@
             <p class="name-page">Ubah Catatan</p>
         </div>
 
-        <form action="/transaction/{{ $transaction->id }}" method="post">
+        <form action="/transaction/{{ $transaction->id }}" method="post" class="form-update">
             @method('put')
             @csrf
             <label>Nama Customer</label>
@@ -98,8 +133,13 @@
                 @endif
                 
             </select>
-                
             <input type="submit" class="btn update" value="Update">
+                
+        </form>
+        <form class="hide-desktop" action="/transaction/{{ $transaction->id }}" method="post">
+            @method('delete')
+            @csrf
+            <button class="delete-mobile" type="submit" onclick="return confirm('Kamu yakin ingin menghapus data ini?')">Delete</button>
         </form>
 
     </div>

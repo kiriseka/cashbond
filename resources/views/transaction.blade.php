@@ -10,8 +10,19 @@
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/content.css">
     <link rel="stylesheet" href="/css/responsif.css">
+    <link rel="stylesheet" href="/css/notif.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="{{ asset('img/logo-polos.png') }}"/>
     <title>Catatan</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".notification_icon .fa-bell").click(function(){
+				$(".dropdown").toggleClass("active");
+			})
+		});
+	</script>
 </head>
 <body>
     <!-- Navbar -->
@@ -27,15 +38,39 @@
             <p class="keterangan">Catatan Tunggakan Transaksi</p>
         </div>
         <div class="right">
-            <form action="" class="search-bar">
+            <form action="/transaction" class="search-bar">
                 <img class="search" src="svg/search.svg" alt="">
                 <input type="text" name="search" id="search" placeholder="search">
             </form>
-            <div class="notif">
-                <img src="svg/notif.svg" alt="">
+            <div class="wrapper">
+	            <div class="notification_wrap">
+                    <div class="notif notification_icon">
+                        <img class="fa-bell" src="svg/notif.svg" alt="">
+                    </div>
+                    <div class="dropdown">
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Johan belum membayar selama<span>14 hari</span></p>
+                                <span class="notify_time">10 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Sunarya belum membayar selama<span>7 hari</span></p>
+                                <span class="notify_time">55 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notify_item">
+                            <div class="notify_info">
+                                <p>Agus belum membayar selama<span>8 hari</span></p>
+                                <span class="notify_time">2 hours ago</span>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
             </div>
             <div class="user">
-                <img src="svg/keluar.svg" alt="">
+                <img src="svg/keluar.svg" title="{{ auth()->user()->name }}">
             </div>
         </div>
     </div>
@@ -73,16 +108,16 @@
     </div>
     
     <!-- Page content -->
+   
     <div class="content">
+        {{-- @if (!empty($search))
+            <p>result for : {{ $search }}</p>
+        @endif --}}
         <div class="name">
             <p class="name-page"><b>Catatan</b></p>
             <p class="keterangan">Catatan Tunggakan Transaksi</p>
         </div>
         <div class="input">
-            <a href="/catatan-edit.html">
-                <input type="button" value="Edit" class="edit button" id="filter">
-            </a>
-            <input type="button" value="Filters" class="filters button" id="filter">
             <a href="/transaction/create">
                 <input type="submit" value="+ Tambah Catatan" class="adds button" id="add">
             </a>
@@ -104,7 +139,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $transaction->nama_customer }}</td>
                     <td class="hide">{{ $transaction->produk_item }}</td>
-                    <td>Rp. {{ $transaction->nominal_transaksi }}</td>
+                    <td>Rp. @currency($transaction->nominal_transaksi)</td>
                     <td>
                         @if (old('status_transaksi', $transaction->status_transaksi) == 1 )
                             <div class="belum-lunas">Belum Lunas</div>
@@ -113,34 +148,43 @@
                         @endif
                     </td>
                     <td class="hide">{{ $transaction->tanggal_transaksi }}</td>
-                    <td class="hide">
-                        
-                            <a href="/transaction/{{ $transaction->id }}/edit" type="submit"><span data-feather="edit"></span></a>
-                         <form action="/transaction/{{ $transaction->id }}" method="post">
+                    <td class="action">
+                        <a href="/transaction/{{ $transaction->id }}/edit" type="submit">Edit</a>
+                        <form class="hide" action="/transaction/{{ $transaction->id }}" method="post">
                             @method('delete')
                             @csrf
-                            <button type="submit" onclick="return confirm('Are you sure?')"><span data-feather="trash-2"></span></button>
+                            <button class="delete" type="submit" onclick="return confirm('Kamu yakin ingin menghapus data ini?')">Delete</button>
                         </form>
-                        
                     </td>
                 </tr>
             @endforeach
             
         </table>
     </div>
-
-    <script>
-      feather.replace()
-    </script>
-    <script>
-        // function toggle(source) {
-        //     checkboxes = document.getElementsByClassName("check");
-        //     for(let i=0, n=checkboxes.length;i<n;i++) {
-        //         checkboxes[i].checked = source.checked;
-        //     }
-        // }
-    </script>
-
-    <script src="/js/script.js"></script>   
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (!empty($search))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Menampilkan hasil untuk {{ $search }}',
+            })
+        </script>
+    @endif
+    @if (session()->has('deleted'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Data berhasil dihapus!',
+            })
+        </script>
+    @endif
+    @if (session()->has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Data berhasil dibuat!',
+            })
+        </script>
+    @endif
 </body>
 </html>

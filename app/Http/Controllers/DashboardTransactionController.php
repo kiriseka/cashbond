@@ -12,12 +12,32 @@ class DashboardTransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // return Transaction::where('user_id', auth()->user()->id)->get();
+
+        // $transaction = Transaction::latest();
+        // if(request('search')){
+        //     $transaction->where('name', 'like', '%' . request('search'). '%');
+        // }
+
+        // return view('transaction',[
+        //     'transactions' => Transaction::where('user_id', auth()->user()->id)->get()
+        // ]);
+
+
+        // $transactions = Transaction::latest();
+        // Transaction::where('user_id', auth()->user()->id)->get();
+        // if(request('search')){
+        //     $transactions->where('name', 'like', '%' . request('search'). '%');
+        // }
+        // // dd($transactions);
+        $search = $request->search;
         return view('transaction',[
-            'transactions' => Transaction::where('user_id', auth()->user()->id)->get()
+            'search' => $search,
+            'transactions' => Transaction::where('user_id', auth()->user()->id)->where('nama_customer', 'LIKE', '%' . request('search') . '%' )->get()
         ]);
+
     }
 
     /**
@@ -113,7 +133,7 @@ class DashboardTransactionController extends Controller
     public function destroy(Transaction $transaction)
     {
         Transaction::destroy($transaction->id);
-        return redirect('/transaction')->with('deleted', 'Transaction has been deleted!');
+        return redirect('/transaction')->with('deleted', 'Data berhasil dihapus!');
 
     }
 }

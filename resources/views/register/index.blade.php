@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/responsif.css">
+    <link rel="icon" href="{{ asset('img/logo-polos.png') }}"/>
     <title>Registrasi</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
             <label>Nama</label>
             <input type="text" name="name" id="name" class="form_login" placeholder="Nama" autofocus required value="{{ old('name') }}">
             @error('name')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback warn">
                     {{ $message }}
                 </div>
             @enderror
@@ -28,7 +29,7 @@
             <label>Email</label>
             <input type="text" name="email" id="email" class="form_login" placeholder="email@gmail.com" required value="{{ old('email') }}">
             @error('email')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback warn">
                     {{ $message }}
                 </div>
             @enderror
@@ -37,7 +38,7 @@
             <input type="password" name="password" id="password" class="form_login" placeholder="Password" required>
             <i class="bi bi-eye-slash" id="togglePassword"></i>
             @error('password')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback warn">
                     {{ $message }}
                 </div>
             @enderror
@@ -46,7 +47,7 @@
             <input type="password" name="password_confirmation" id="password_confirmation" class="form_login password_confirmation" placeholder="Password" required>
             <i class="bi bi-eye-slash" id="toggle-password_confirmation"></i>
             @error('password_confirmation')
-                <div class="invalid-feedback">
+                <div class="invalid-feedback warn">
                     {{ $message }}
                 </div>
             @enderror

@@ -72,6 +72,10 @@
         display: none;
     }
 
+    .action .hide{
+        display: none;
+    }
+
     .input{
         margin: 50px 0;
     }
@@ -111,8 +115,13 @@
     }
 
     .sidebar a{
-        font-size: 15pt;
-        padding-top: 10px;
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .sidebar form button{
+        padding-top: 15px;
+        font-size: 18px;
     }
 
     .sidebar .icon img{
@@ -202,6 +211,22 @@
         width: 390px;
         box-sizing: border-box;
         padding: 10px 15px;
+    }
+
+    .form-update{
+        padding: 0px 10px;
+    }
+
+    .wrapper .notification_wrap .dropdown:before{
+        transform: translateX(300%);
+    }
+
+    .notify_info p{
+        display: block ;
+    }
+
+    .hide-desktop .delete-mobile{
+        display: block;
     }
 }
 

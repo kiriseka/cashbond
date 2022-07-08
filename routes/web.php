@@ -25,6 +25,8 @@ Route::get('/', function () {
 // })->middleware('auth');
 
 Route::resource('/transaction',DashboardTransactionController::class)->middleware('auth');
+// Route::get('/transaction', $search . '/transaction');
+
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
