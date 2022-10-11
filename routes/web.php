@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardTransactionController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -17,9 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home')->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->name('home')->middleware('auth');
+
 
 // Route::get('/catatan', function () {
 //     return view('catatan');
@@ -37,5 +37,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/sugestion', function () {
+    return view('saran');
+})->middleware('auth');
 
-Route::post('/send', [HelpController::class, 'sendMessage'])->middleware('auth');
+Route::post('/sugestion', [HelpController::class, 'sendMessage'])->middleware('auth');

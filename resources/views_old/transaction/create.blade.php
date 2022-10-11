@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/form.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/font.css">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/notif.css">
     <link rel="stylesheet" href="/css/responsif.css">
     <link rel="icon" href="{{ asset('img/logo-polos.png') }}"/>
-    <title>Home</title>
+    <title>Tambah Catatan</title>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script>
@@ -33,12 +33,13 @@
                 <span></span>
                 <span></span>
             </div>
+            <p class="name-page">Tambah Catatan</p>
         </div>
         <div class="right">
         <div class="wrapper">
 	            <div class="notification_wrap">
                     <div class="notif notification_icon">
-                        <img class="fa-bell" src="/svg/notif.svg" alt="">
+                        <img class="fa-bell" src="/../svg/notif.svg" alt="">
                     </div>
                     <div class="dropdown">
                         <div class="notify_item">
@@ -63,49 +64,86 @@
                 </div>
             </div>
             <div class="user">
-                <img src="svg/keluar.svg" title="{{ auth()->user()->name }}">
+                <img src="{{ asset('/svg/keluar.svg') }}" title="{{ auth()->user()->name }}">
             </div>
         </div>
     </div>
       
-    <!-- The sidebar -->
+      <!-- The sidebar -->
     <div class="sidebar">
         <div class="logo">
-            <img src="img/logo-1.png" alt="logo">
+            <img src="{{ asset('/img/logo-1.png') }}" alt="logo">
         </div>
         <div class="menu-sidebar">
             <div class="dashboard">
                 <div class="icon-db icon">
-                    <img src="svg/db.svg" alt="">
+                    <img src="{{ asset('svg/db.svg') }}" alt="">
                 </div>
-                <a class="{{ (request()->is('/')) ? 'active' : '' }}" href="/">Dashboard</a>
+                <a class="home" href="/">Dashboard</a>
             </div>
-            <div class="catatan {{ (request()->is('/transaction*')) ? 'active' : '' }}">
+            <div class="catatan">
                 <div class="icon-catatan icon">
                     <img src="/svg/catatan.svg" alt="">
                 </div>
-                <a href="/transaction">Catatan</a>
+                <a class="active" href="/transaction">Catatan</a>
             </div>
-            <div class="keluar"> 
+            <div class="keluar">
+                
                 <div class="icon-keluar icon">
                     <img src="/svg/keluar.svg" alt="">
                 </div>
                 <form action="/logout" method="post">
                     @csrf
                     <button class="btn-logout" type="submit">Keluar</button>
-                </form>    
-            </div>
-            <div class="saran"> 
-                <div class="icon-saran icon">
-                    <img width="24" height="24" viewBox="0 0 24 24" fill="none" src="img/saran.png" alt="">
-                </div>
-                <a class="{{ (request()->is('/saran')) ? 'active' : '' }}" href="/sugestion">Saran dan Masukan</a>   
+                </form>
+                
             </div>
         </div>
     </div>
     
     <!-- Page content -->
-    @yield('content')
-    
+    <div class="content">
+        <div class="name">
+            <p class="name-page">Tambah Catatan</p>
+        </div>
+        <form action="/transaction" method="post">
+            @csrf
+            <label>Nama</label>
+            <input type="text" name="nama_customer" id="nama_customer" class="form">
+            <label>Produk</label>
+            <input type="text" name="produk_item" id="produk_item" class="form">
+            @error('nama_customer')
+                <div class="invalid-feedback warn">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <label>Harga</label>
+            <input type="number" name="nominal_transaksi" id="nominal_transaksi" class="form" placeholder="Rp">
+            @error('nominal_transaksi')
+                <div class="invalid-feedback warn">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <label>Tanggal Transaksi</label>
+            <input type="date" name="tanggal_transaksi" id="tanggal_transaksi" class="form">
+            @error('tanggal_transaksi')
+                <div class="invalid-feedback warn">
+                    {{ $message }}
+                </div>
+            @enderror
+            
+            <label>Status</label>
+            <div class="dropdown">
+                <select id="status_transaksi" name="status_transaksi">
+                    <option value="1" selected>Belum Lunas</option>
+                    <option value="2">Lunas</option>
+                </select>
+            </div>
+            <input type="submit" class="btn" value="Tambah">
+        </form>
+    </div>
+    <script src="/js/script.js"></script> 
 </body>
 </html>

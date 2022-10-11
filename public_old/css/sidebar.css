@@ -17,7 +17,7 @@
     margin-right: 15px;
 }
 
-.dashboard, .catatan, .keluar, .saran{
+.dashboard, .catatan, .keluar{
     margin-bottom: 30px;
 }
 
@@ -79,8 +79,4 @@ form button.btn-logout {
 
 .keluar form{
     padding: 0;
-}
-
-.saran {
-    margin-top: 100%;
 }

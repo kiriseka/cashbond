@@ -82,24 +82,20 @@
             </div>
             <div class="catatan {{ (request()->is('/transaction*')) ? 'active' : '' }}">
                 <div class="icon-catatan icon">
-                    <img src="/svg/catatan.svg" alt="">
+                    <img src="svg/catatan.svg" alt="">
                 </div>
                 <a href="/transaction">Catatan</a>
             </div>
-            <div class="keluar"> 
+            <div class="keluar">
+                
                 <div class="icon-keluar icon">
-                    <img src="/svg/keluar.svg" alt="">
+                    <img src="svg/keluar.svg" alt="">
                 </div>
                 <form action="/logout" method="post">
                     @csrf
                     <button class="btn-logout" type="submit">Keluar</button>
-                </form>    
-            </div>
-            <div class="saran"> 
-                <div class="icon-saran icon">
-                    <img width="24" height="24" viewBox="0 0 24 24" fill="none" src="img/saran.png" alt="">
-                </div>
-                <a class="{{ (request()->is('/saran')) ? 'active' : '' }}" href="/sugestion">Saran dan Masukan</a>   
+                </form>
+                
             </div>
         </div>
     </div>

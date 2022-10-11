@@ -69,7 +69,7 @@ img.search{
     display: flex;
 }
 
-.dashboard, .catatan, .keluar, .saran{
+.dashboard, .catatan, .keluar{
     display: flex;
     align-items: center;
 }

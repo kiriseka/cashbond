@@ -14,9 +14,11 @@ class HelpController extends Controller
         // print $message; 
         // $message_text = "Halo Kisanak Saya Pendekar";
         $message = $request->input('message');
+        $type = $request->input('type');
         $user = auth()->user()->name;
         // $message_text = $request->input('message'); 
-        $message_text = "Pesan dari : " . $user . "\n\n" . 
+        $message_text = "Pesan dari : " . $user . "\n" . 
+                        "Tipe pesan : " . $type . "\n\n" . 
                         "Isi Pesan : \n" . $message; 
         $secret_token = "5692744011:AAGy-UwOZPvgr8jaDjRiv_VjtkoVmid5xcE";
 
