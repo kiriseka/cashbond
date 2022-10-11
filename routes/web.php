@@ -38,4 +38,4 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 
-Route::post('/send', [HelpController::class, 'sendMessage']);
+Route::post('/send', [HelpController::class, 'sendMessage'])->middleware('auth');
