@@ -1,0 +1,259 @@
+@media only screen and (max-width: 768px) {
+    .content{
+        width: 100%;
+        margin: 0;
+        height: 92%;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 8%;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+
+    .notif, .user{
+        height: 45px;
+        width: 45px;
+    }
+
+    .left{
+        margin: 0;
+    }
+
+    .right{
+        text-align: right;
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .content p{
+        font-size: 10pt;
+    }
+
+    .navbar p{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+        z-index: 99;
+        background-color: #2c2c2c;
+        margin-left: 15px;
+    }
+
+    .search-bar{
+        width: 100px;
+        margin-right: 90px;
+    }
+
+    #search{
+        width: 120px;
+        height: 25px;
+    }
+
+    div.name{
+        display: block;
+        padding-top: 10px;
+    }
+
+    p.name-page{
+        font-size: 15pt;
+        padding-left: 10px;
+    }
+
+    p.keterangan{
+        font-size: 11pt;
+        padding-left: 10px;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .action .hide{
+        display: none;
+    }
+
+    .input{
+        margin: 50px 0;
+    }
+
+    .left input{
+        display: block;
+    }
+
+    form{
+        padding: 0 10px;
+    }
+
+    #customers td, #customers th {
+        padding: 10px 10px;
+        font-size: 9pt;
+    }
+
+    #customers{
+        width: 100%;
+        font-size: 1pt;
+    }
+
+    .input{
+       margin: 50px 0 40px 0; 
+    }
+
+    .button{
+        padding: 10px 15px;
+        margin-left: 5px;
+    }
+
+    .sidebar {
+        position: absolute;
+        width: 70%;
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+
+    .sidebar a{
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .sidebar form button{
+        padding-top: 15px;
+        font-size: 18px;
+    }
+
+    .sidebar .icon img{
+        height: 30px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .sidebar.slide {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .menu-toggle input.slide-close {
+        width: 1000px;
+        height: 1000px;
+        opacity: 0;
+    }
+
+
+    /* Hamburger menu */
+
+    .menu-toggle {
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10px;
+    }
+
+    .menu-toggle input {
+        position: fixed;
+        width: 40px;
+        height: 28px;
+        z-index: 999;
+        top: 15px;
+        left: 10px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 2px 0;
+        background-color: #e9e9f5;
+        border-radius: 3px;
+        transition: all 0.5s;
+
+    }
+
+    /* Hamburger menu animation */
+
+    .menu-toggle span:nth-child(2) {
+        transform-origin: 0 0;
+    }
+
+    .menu-toggle input:checked~span:nth-child(2) {
+        transform: rotate(45deg) translate(1px, 2px);
+        background-color: #fff;
+    }
+
+    .menu-toggle input:checked~span:nth-child(3) {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .menu-toggle span:last-child {
+        transform-origin: 0 100%;
+    }
+
+    .menu-toggle input:checked~span:last-child {
+        transform: rotate(-45deg) translate(1px, -1px);
+        background-color: #fff;
+    }
+
+    h2{
+        font-size: 45px;
+    }
+
+    .logo{
+        width: 90%;
+    }
+
+    .kotak_login{
+        width: 390px;
+        box-sizing: border-box;
+        padding: 10px 15px;
+    }
+
+    .form-update{
+        padding: 0px 10px;
+    }
+
+    .wrapper .notification_wrap .dropdown:before{
+        transform: translateX(300%);
+    }
+
+    .notify_info p{
+        display: block ;
+    }
+
+    .hide-desktop .delete-mobile{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #search{
+        width: 100px;
+    }
+
+    .content{
+        height: 90%;
+    }
+
+    .navbar{
+        height: 10%;
+    }
+
+    .search-bar{
+        margin-right: 60px;
+    }
+
+    .logo{
+        width: 90%;
+    }
+
+    .kotak_login{
+        width: 340px;
+        box-sizing: border-box;
+        padding: 10px 15px;
+    }
+}

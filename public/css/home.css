@@ -1,0 +1,95 @@
+.konten{
+    box-sizing: border-box;
+    padding: 1px 14px;
+    width: 78%;
+    height: 85%;
+    z-index: -99;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
+    right: 0;
+    text-align: left;
+}
+
+h2{
+    font-size: 20pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4{
+    font-size: 15pt;
+    color: #8b8b8b;
+    margin-top: 0;
+}
+
+p{
+    text-align: center;
+}
+
+#nbr{
+  font-size:62px;
+  margin:44px 0 0 0;
+}
+
+#nbre{
+    font-size:62px;
+    margin:44px 0 0 0;
+  }
+
+#nbra{
+    font-size:62px;
+    margin:44px 0 0 0;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    float: left;
+    width: 33.33%;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: center;
+    border-radius: 1em;
+}
+  
+  /* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);
+}
+  
+  /* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+    border-radius: 1em;
+    width: fit-content;
+}
+
+.container-green {
+    background: #28c708;
+    background: linear-gradient(to bottom, #63be3f, #28c708);
+    color: #fafafa;
+}
+
+.container-blue {
+    background: #56CCF2;
+    background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+    color: #fafafa;
+}
+
+.container-red {
+    background: #cb2d3e;
+    background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+    color: #fafafa;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
