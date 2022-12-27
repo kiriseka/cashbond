@@ -1,0 +1,22 @@
+.content img{
+    width: 150px;
+    display: block;
+    margin: auto;
+    padding-top: 90px;
+}
+
+.content{
+    text-align: center;
+}
+
+h2{
+    font-size: 70pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4{
+    font-size: 20pt;
+    color: #8b8b8b;
+    margin-top: 0;
+}

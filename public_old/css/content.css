@@ -1,0 +1,73 @@
+.content {
+    box-sizing: border-box;
+    padding: 1px 14px;
+    width: 78%;
+    height: 85%;
+    z-index: -99;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
+    right: 0;
+}
+
+.content a{
+    text-decoration: none;
+}
+
+.name{
+    display: none;
+}
+
+.menu{
+    display: none;
+}
+
+.action a{
+    display: inline;
+    color: inherit; 
+    text-decoration: inherit;
+    background: #2b00d4;
+	color: white;
+	font-size: 11pt;
+    border: 1px solid #2b00d4;
+    transition: 0.5s;
+	padding: 3px 7px;
+    float: left;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+.action form{
+    display: inline;
+	color: white;
+    background: #CC3A3A;
+	font-size: 11pt;
+    border: 1px solid #CC3A3A;
+    transition: 0.5s;
+	padding: 3px 7px;
+    float: left;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+.action form:hover, .action a:hover{
+    transition: 0.3s;
+    background-color: white;
+    color: #232323;
+}
+
+.delete{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+td.action{
+    padding: 0px;
+    margin: 0;
+}
